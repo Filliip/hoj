@@ -1,0 +1,46 @@
+
+body{
+    background-color:#650979;
+}
+
+#idcko{
+   position: absolute;
+   height: 100px;
+   left: 20%;
+   top: 36%;
+   width: 180px;
+   background-color:rgb(198, 71, 113) ;
+   font-size: 120%;
+   font-family: 'Roboto Slab', serif;
+}
+
+
+#point{
+position: absolute;
+width: 100px;
+height: 100px;
+left: 65%;
+top: 35%;
+border-radius: 80%;
+display: flex;
+background-color: rgb(76, 22, 127);
+border: 10px solid rgb(42, 15, 68);
+cursor:-webkit-zoom-out;
+
+}
+
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#point:hover{
+    transition: 400ms;
+    transform: scale(1.3);
+    background-color:rgb(198, 71, 113) ;
+    border: 12px solid blueviolet;
+    border-radius: 0;
+}
+
+#idcko:hover{
+
+}
