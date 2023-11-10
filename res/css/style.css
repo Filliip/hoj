@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&display=swap");
 body {
   background-color: #650979;
+  overflow: hidden;
 }
 
 #idcko {
@@ -38,10 +39,10 @@ body {
 }
 
 #point:hover {
-  transform: scale(1.2);
-  background-color: rgb(67, 21, 110);
+
+  background-color: rgb(47, 3, 47);
   border: 10px solid rgb(47, 3, 47);
-  border-radius: 0;
+
 }
 
 #idcko:hover {

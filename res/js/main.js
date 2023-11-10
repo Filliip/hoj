@@ -29,6 +29,7 @@ const point = document.getElementById("point");
 const idcko = document.getElementById("idcko");
 
 let gameInterval;
+gameIntervalSpeed = 700;
 
 idcko.onclick = () => {
   idcko.style.display = "none";
@@ -44,15 +45,18 @@ const moveElement = (element, x, y) => {
 const setPointOnclick = (element) => {
   element.onclick = () => {
     element.innerText++;
-    moveElement(element, getRandomNumber(0, 600), getRandomNumber(0, 600));
+    gameIntervalSpeed -= 10;
+    if(gameInterval > 200)
+    setGameInterval(element)
+    moveElement(element, getRandomNumber(0, window.innerWidth -65), getRandomNumber(0, window.innerHeight -65));
   };
 };
 
 const setGameInterval = (element) => {
   clearInterval(gameInterval);
   gameInterval = setInterval(() => {
-    moveElement(element, getRandomNumber(0, 600), getRandomNumber(0, 600));
-  }, 600);
+    moveElement(element, getRandomNumber(0, window.innerWidth -65), getRandomNumber(0, window.innerHeight -65));
+  }, gameIntervalSpeed);
 };
 
 const getRandomNumber = (minimum, maximum) =>
