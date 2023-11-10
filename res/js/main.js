@@ -27,14 +27,17 @@ play("Take me home", "John Denver" ) */
 
 const point = document.getElementById("point");
 const idcko = document.getElementById("idcko");
+const showtime = document.getElementById("showtime");
 
 let gameInterval;
-gameIntervalSpeed = 700;
+let gameIntervalSpeed = 700;
+let gameStart;
 
 idcko.onclick = () => {
   idcko.style.display = "none";
   setPointOnclick(point);
-  setGameInterval(point)
+  setGameInterval(point);
+  gameStart = performance.now();
 };
 
 const moveElement = (element, x, y) => {
@@ -44,20 +47,33 @@ const moveElement = (element, x, y) => {
 
 const setPointOnclick = (element) => {
   element.onclick = () => {
+    let gameEnd = performance.now();
+    let time = gameEnd - gameIntervalSpeed;
+    time= Math.floor(time);
+    showtime.innerText =`Time: ${time}ms`
+    gameStart = gameEnd;
     element.innerText++;
     gameIntervalSpeed -= 10;
-    if(gameInterval > 200)
-    setGameInterval(element)
-    moveElement(element, getRandomNumber(0, window.innerWidth -65), getRandomNumber(0, window.innerHeight -65));
+    if (gameInterval > 200) setGameInterval(element);
+    moveElement(
+      element,
+      getRandomNumber(0, window.innerWidth - 65),
+      getRandomNumber(0, window.innerHeight - 65)
+    );
   };
 };
 
 const setGameInterval = (element) => {
   clearInterval(gameInterval);
   gameInterval = setInterval(() => {
-    moveElement(element, getRandomNumber(0, window.innerWidth -65), getRandomNumber(0, window.innerHeight -65));
+    moveElement(
+      element,
+      getRandomNumber(0, window.innerWidth - 65),
+      getRandomNumber(0, window.innerHeight - 65)
+    );
   }, gameIntervalSpeed);
 };
 
 const getRandomNumber = (minimum, maximum) =>
   Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+

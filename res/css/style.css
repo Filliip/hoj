@@ -38,13 +38,6 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-#point:hover {
-
-  background-color: rgb(47, 3, 47);
-  border: 10px solid rgb(47, 3, 47);
-
-}
-
 #idcko:hover {
   transition: 400ms;
   transform: scale(1.3);
@@ -56,4 +49,18 @@ body {
 
 #idcko:active {
   transform: scale(0.9);
+}
+
+#showtime{
+    font-size: 20px;
+    border: 5px solid blueviolet ;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(24, 24, 88);
+    
+
+
 }
