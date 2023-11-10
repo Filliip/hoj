@@ -25,12 +25,35 @@ const playMusic = (song, reznik) => {
 play("Zasrany vanoce", "reznik" )
 play("Take me home", "John Denver" ) */
 
-function sum(a, b) {
-  return a + b;
-}
+const point = document.getElementById("point");
+const idcko = document.getElementById("idcko");
 
-let resultX = sum(9, 9);
-let resultY = sum(6, 15);
-let result = sum(resultX, resultY);
-console.log(result);
+let gameInterval;
 
+idcko.onclick = () => {
+  idcko.style.display = "none";
+  setPointOnclick(point);
+  setGameInterval(point)
+};
+
+const moveElement = (element, x, y) => {
+  element.style.top = y + "px";
+  element.style.left = x + "px";
+};
+
+const setPointOnclick = (element) => {
+  element.onclick = () => {
+    element.innerText++;
+    moveElement(element, getRandomNumber(0, 600), getRandomNumber(0, 600));
+  };
+};
+
+const setGameInterval = (element) => {
+  clearInterval(gameInterval);
+  gameInterval = setInterval(() => {
+    moveElement(element, getRandomNumber(0, 600), getRandomNumber(0, 600));
+  }, 600);
+};
+
+const getRandomNumber = (minimum, maximum) =>
+  Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
